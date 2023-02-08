@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    container_name: postgres_container
+    container_name: postgres_cities_api
     image: postgres
     env_file:
     # Read Keys from dotEnv
