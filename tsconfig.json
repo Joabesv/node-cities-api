@@ -3,13 +3,15 @@
     "baseUrl": ".",
     "target": "ESNext",
     "module": "commonjs",
+    "noEmit": true,
     "resolveJsonModule": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
     "strict": true,
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": ["src/**/*.ts"]
 }

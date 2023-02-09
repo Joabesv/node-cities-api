@@ -1,22 +1,14 @@
-import fastify from 'fastify';
-import { config } from './config/env';
-import { prettyLog } from './utils/prettyLog';
+import { buildServer } from "@/server/";
 
-const server = fastify({
-  logger: {
-    transport: prettyLog,
-  },
-});
-
-async function buildServer() {
+async function server() {
+  const app = await buildServer();
+  const { PORT, HOST,  } = app.config;
   try {
-    server.decorate('config', config);
-    // console.log(server.config
-    await server.listen({ port: 5000, host: '0.0.0.0' });
+    await app.listen({ port: PORT, host: HOST });
   } catch (error: unknown) {
-    server.log.error(error, 'deu merda');
+    app.log.error(error, 'error while booting app');
     process.exit(1);
   }
 }
 
-buildServer();
+server();
