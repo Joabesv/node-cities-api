@@ -6,7 +6,7 @@ async function server() {
   try {
     await app.listen({ port: PORT, host: HOST });
   } catch (error: unknown) {
-    app.log.error(error, 'deu merda');
+    app.log.error(error, 'error while booting app');
     process.exit(1);
   }
 }
