@@ -1,5 +1,5 @@
 import fastify from 'fastify';
-import { buildConfig } from './config/env';
+import { config } from './config/env';
 import { prettyLog } from './utils/prettyLog';
 
 const server = fastify({
@@ -11,7 +11,7 @@ const server = fastify({
 async function buildServer() {
   try {
     // funcionou :)
-    server.decorate('config', buildConfig);
+    server.decorate('config', config);
     await server.listen({ port: 5000, host: '0.0.0.0' });
   } catch (error: unknown) {
     server.log.error(error, 'deu merda');

@@ -1,5 +1,6 @@
 import S from 'fluent-json-schema';
 
+// i NEED to migrate this to zod
 export const configSchema = S.object()
   .required([
     'PORT',
