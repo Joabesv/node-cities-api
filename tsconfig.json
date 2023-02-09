@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "target": "ESNext",
     "module": "commonjs",
+    "noEmit": true,
     "resolveJsonModule": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
