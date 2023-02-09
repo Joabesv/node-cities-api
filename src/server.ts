@@ -4,14 +4,14 @@ import { prettyLog } from './utils/prettyLog';
 
 const server = fastify({
   logger: {
-    transport: prettyLog
-  }
+    transport: prettyLog,
+  },
 });
 
 async function buildServer() {
   try {
-    // funcionou :)
     server.decorate('config', config);
+    // console.log(server.config
     await server.listen({ port: 5000, host: '0.0.0.0' });
   } catch (error: unknown) {
     server.log.error(error, 'deu merda');

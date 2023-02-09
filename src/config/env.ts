@@ -1,7 +1,6 @@
 import { EnvSchemaData, EnvSchemaOpt, envSchema } from 'env-schema';
 import { configSchema } from './env.schema';
 
-
 function buildConfig(): EnvSchemaData {
   const envSchemaOptions: EnvSchemaOpt = {
     schema: configSchema,

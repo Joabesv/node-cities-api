@@ -1,19 +1,12 @@
-import S from 'fluent-json-schema';
+import { Type, Static } from '@sinclair/typebox';
 
-// i NEED to migrate this to zod
-export const configSchema = S.object()
-  .required([
-    'PORT',
-    'HOST',
-    'DATABASE_URL',
-    'JWT_SECRET',
-    'POSTGRES_USER',
-    'POSTGRES_PASSWORD'
-  ])
-  .prop('PORT', S.number().default(3000))
-  .prop('HOST', S.string().default('localhost'))
-  .prop('POSTGRES_PASSWORD', S.string())
-  .prop('POSTGRES_USER', S.string().minLength(5))
-  .prop('DATABASE_URL', S.string())
-  // ask for review about Secret possible types
-  .prop('JWT_SECRET', S.string());
+export const configSchema = Type.Object({
+  PORT: Type.Number({ default: 3000 }),
+  HOST: Type.String({ default: 'localhost' }),
+  DATABASE_URL: Type.String(),
+  JWT_SECRET: Type.String({ minLength: 32 }),
+  POSTGRES_USER: Type.String(),
+  POSTGRES_PASSWORD: Type.String(),
+});
+
+export type Config = Static<typeof configSchema>;
