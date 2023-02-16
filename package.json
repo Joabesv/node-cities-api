@@ -7,7 +7,9 @@
     "start": "tsx src/server.ts",
     "start:dev": "tsx watch src/server.ts",
     "build": "tsup --config tsup.production.config.ts src/server.ts",
-    "build:type-check": "tsc --build"
+    "build:type-check": "tsc --build",
+    "lint": "eslint . --no-color --ext  .ts",
+    "lint:fix": "eslint . --no-color --fix --ext  .ts"
   },
   "keywords": [],
   "author": "Joabesv<joabevarjao123@gmail.com>",
@@ -15,8 +17,14 @@
   "devDependencies": {
     "@sinclair/typebox": "^0.25.21",
     "@types/node": "^18.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
     "env-schema": "^5.2.0",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "pino-pretty": "^9.1.1",
+    "prettier": "^2.8.4",
     "prisma": "^4.10.0",
     "tsup": "^6.6.0",
     "tsx": "^3.12.3",
