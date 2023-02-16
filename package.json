@@ -8,7 +8,8 @@
     "start:dev": "tsx watch src/server.ts",
     "build": "tsup --config tsup.production.config.ts src/server.ts",
     "build:type-check": "tsc --build",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --no-color --ext  .ts",
+    "lint:fix": "eslint . --no-color --fix --ext  .ts"
   },
   "keywords": [],
   "author": "Joabesv<joabevarjao123@gmail.com>",
